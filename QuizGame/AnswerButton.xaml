@@ -5,41 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QuizGame"
              mc:Ignorable="d" 
-             d:DesignHeight="70" d:DesignWidth="500">
-    
+             d:DesignHeight="70"
+             d:DesignWidth="500">
+
     <Button FontSize="16"
-            Background="DodgerBlue"
             Foreground="white"
             Height="Auto"
-            Margin="10"
-            Click="Button_Click">
+            Click="Button_Click"
+            Background="#424242"
+            Padding="10">
 
-        <Grid HorizontalAlignment="Left"
-              Width="450">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <DockPanel HorizontalAlignment="Left"
+                   Width="450"
+                   LastChildFill="True">
 
-            <Border BorderBrush="White"
-                    BorderThickness="2"
-                    CornerRadius="15"
-                    Margin="2">
-                
-                <TextBlock Text="A"
+            <TextBlock Text="A"
                        x:Name="tbLabel"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center"/>
-            </Border>
+                       VerticalAlignment="Center"
+                       Foreground="DarkOrange"
+                       FontWeight="Bold"/>
 
             <TextBlock Grid.Column="1"
                        x:Name="tbText"
                        Text="Answer 1"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Left"
+                       VerticalAlignment="Stretch"
                        TextWrapping="Wrap"
-                       Margin="20 0 0 0"/>
-
-        </Grid>
+                       Margin="20 0 0 0"
+                       DockPanel.Dock="Right"/>
+        </DockPanel>
     </Button>
 </UserControl>

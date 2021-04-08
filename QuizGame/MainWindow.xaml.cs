@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Net;
+using System.Web;
 
 namespace QuizGame
 {
@@ -72,10 +74,7 @@ namespace QuizGame
                 ansBtn.Margin = new Thickness(10);
                 ansBtn.Click += AnswerButton_Click;
 
-                Grid.SetColumn(ansBtn, idx % 2);
-                Grid.SetRow(ansBtn, idx / 2);
-                
-                answerGrid.Children.Add(ansBtn);
+                answerStack.Children.Add(ansBtn);
                 answerButtons.Add(ansBtn);
             }
         }
@@ -99,7 +98,6 @@ namespace QuizGame
         private void NextQuestion()
         {
             QuestionData currentQuestion = questionList[currentQuestionIdx];
-
             lblQuestion.Text = currentQuestion.Question;
 
             for(int idx = 0; idx < 4; idx++)

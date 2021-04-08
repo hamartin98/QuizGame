@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Quiz Game"
+        Height="600"
+        Width="800"
+        Loaded="Window_Loaded"
+        Foreground="White"
+        Background="#121212"
+        FontSize="16">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -30,20 +36,13 @@
                    VerticalAlignment="Center"
                    TextWrapping="Wrap"/>
 
-            <Grid x:Name="answerGrid"
-                  Grid.Row="1">
+            
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <StackPanel x:Name="answerStack"
+                        Grid.Row="1">
                 
-            </Grid>
+            </StackPanel>
+            
         </Grid>
 
         <Grid x:Name="prizeGrid"

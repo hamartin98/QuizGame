@@ -11,26 +11,6 @@ namespace QuizGame
         public string Correct_answer { get; set; }
         public List<string> Incorrect_answers { get; set; }
 
-        /*
-        // Basic constructor to initialize question data
-        public QuestionData(string difficulty, string category, string question, List<string> incorrectAnswers, string correctAnswer)
-        {
-            this.difficulty = difficulty;
-            this.Category = category;
-            this.Question = question;
-            this.incorrectAnswers = incorrectAnswers;
-            this.correctAnswer = correctAnswer;
-        }
-
-        // Constructor only for test purposes
-        public QuestionData(string question, List<string> incorrectAnswers, string correctAnswer)
-        {
-            this.Question = question;
-            this.incorrectAnswers = incorrectAnswers;
-            this.correctAnswer = correctAnswer;
-        }
-        */
-
         // Returns the correct answer to the question
         public string GetCorrectAnswer()
         {
