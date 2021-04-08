@@ -80,5 +80,11 @@ namespace QuizGame
                 Incorrect_answers[idx] = WebUtility.HtmlDecode(Incorrect_answers[idx]);
             }
         }
+
+        // Returns true if the given answer is correct
+        public bool IsCorrect(string answer)
+        {
+            return answer == Correct_answer;
+        }
     }
 }

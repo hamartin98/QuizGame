@@ -85,7 +85,7 @@ namespace QuizGame
         {
             string answer = (sender as AnswerButton).GetText();
             MessageBox.Show(answer);
-            NextQuestion();
+            CheckAnswer(answer);
         }
 
         // Gets the list of the questions required for the game
@@ -106,8 +106,27 @@ namespace QuizGame
             {
                 answerButtons[idx].SetData(currentQuestion.GetAnswers()[idx]);
             }
+        }
 
-            currentQuestionIdx++;
+        // Checks the selected answer
+        private void CheckAnswer(string answer)
+        {
+            MessageBox.Show(questionList[currentQuestionIdx].ToString());
+
+            if(questionList[currentQuestionIdx].IsCorrect(answer))
+            {
+                MessageBox.Show("Correct answer!");
+                currentQuestionIdx++;
+                NextQuestion();
+                // Step on the prize list
+            }
+            else
+            {
+                MessageBox.Show("Wrong answer, end of the game!");
+                // End of the game
+                // If there is a fix prize, the player gets it
+                // Save result
+            }
         }
     }
 }
