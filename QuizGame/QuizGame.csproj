@@ -67,6 +67,12 @@
       <DependentUpon>AnswerButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApiHelper.cs" />
+    <Compile Include="PrizeListControl.xaml.cs">
+      <DependentUpon>PrizeListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrizeListItem.xaml.cs">
+      <DependentUpon>PrizeListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QuestionData.cs" />
     <Compile Include="QuestionHandler.cs" />
     <Compile Include="QuestionListModel.cs" />
@@ -86,6 +92,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PrizeListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrizeListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
