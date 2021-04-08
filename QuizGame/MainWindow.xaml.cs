@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace QuizGame
 {
@@ -22,7 +12,7 @@ namespace QuizGame
     {
         private List<int> prizeList; // Store the list of prizes
         private List<AnswerButton> answerButtons; // Store the answer buttons
-        private List<Question> questionList; // Store the questions
+        private List<QuestionData> questionList; // Store the questions
         private int currentQuestionIdx; // The index of the current question
 
         public MainWindow()
@@ -33,12 +23,19 @@ namespace QuizGame
             InitAnswerButtons();
         }
 
+        // Load the questions after the Window is loaded
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            await GetQuestionsAsync();
+            NextQuestion();
+        }
+
         // Initialize member variables at the start
         private void InitData()
         {
             prizeList = new List<int>();
             answerButtons = new List<AnswerButton>();
-            questionList = new List<Question>();
+            questionList = new List<QuestionData>();
             currentQuestionIdx = 0;
         }
 
@@ -88,6 +85,29 @@ namespace QuizGame
         {
             string answer = (sender as AnswerButton).GetText();
             MessageBox.Show(answer);
+            NextQuestion();
+        }
+
+        // Gets the list of the questions required for the game
+        private async Task GetQuestionsAsync()
+        {
+            QuestionHandler questionHandler = new QuestionHandler();
+            questionList = await questionHandler.GetQuestionList();
+        }
+
+        // Sets the question and answers based on the currentQuestionIdx
+        private void NextQuestion()
+        {
+            QuestionData currentQuestion = questionList[currentQuestionIdx];
+
+            lblQuestion.Text = currentQuestion.Question;
+
+            for(int idx = 0; idx < 4; idx++)
+            {
+                answerButtons[idx].SetData(currentQuestion.GetAnswers()[idx]);
+            }
+
+            currentQuestionIdx++;
         }
     }
 }

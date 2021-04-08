@@ -1,44 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuizGame
 {
-    class Question
+    class QuestionData
     {
-        private int id;
-        private string difficulty;
-        public string Category { get; }
-        public string question { get; }
+        public string Category { get; set; }
+        public string Difficulty { get; set; }
+        public string Question { get; set; }
+        public string Correct_answer { get; set; }
+        public List<string> Incorrect_answers { get; set; }
 
-        private List<string> incorrectAnswers;
-        private string correctAnswer;
-
+        /*
         // Basic constructor to initialize question data
-        public Question(int id, string difficulty, string category, string question, List<string> incorrectAnswers, string correctAnswer)
+        public QuestionData(string difficulty, string category, string question, List<string> incorrectAnswers, string correctAnswer)
         {
-            this.id = id;
             this.difficulty = difficulty;
             this.Category = category;
-            this.question = question;
+            this.Question = question;
             this.incorrectAnswers = incorrectAnswers;
             this.correctAnswer = correctAnswer;
         }
 
         // Constructor only for test purposes
-        public Question(string question, List<string> incorrectAnswers, string correctAnswer)
+        public QuestionData(string question, List<string> incorrectAnswers, string correctAnswer)
         {
-            this.question = question;
+            this.Question = question;
             this.incorrectAnswers = incorrectAnswers;
             this.correctAnswer = correctAnswer;
         }
+        */
 
         // Returns the correct answer to the question
         public string GetCorrectAnswer()
         {
-            return correctAnswer;
+            return Correct_answer;
         }
 
         // Return the list of answers in random order, including the correct one
@@ -52,11 +48,11 @@ namespace QuizGame
             {
                 if(idx != 3)
                 {
-                    result.Add(incorrectAnswers[idx]);
+                    result.Add(Incorrect_answers[idx]);
                 }
                 else
                 {
-                    result.Add(correctAnswer);
+                    result.Add(Correct_answer);
                 }
             }
 
@@ -82,7 +78,7 @@ namespace QuizGame
         // Returns the question and the answers as a string
         public override string ToString()
         {
-            return $"{question}, Correct answer: {correctAnswer}\nIncorrect answers: {incorrectAnswers[0]}\n {incorrectAnswers[1]}\n {incorrectAnswers[2]}";
+            return $"{Question}, Correct answer: {Correct_answer}\nIncorrect answers: {Incorrect_answers[0]}\n {Incorrect_answers[1]}\n {Incorrect_answers[2]}";
         }
     }
 }
