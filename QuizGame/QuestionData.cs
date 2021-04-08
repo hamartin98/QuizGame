@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 
 namespace QuizGame
 {
@@ -58,7 +59,26 @@ namespace QuizGame
         // Returns the question and the answers as a string
         public override string ToString()
         {
-            return $"{Question}, Correct answer: {Correct_answer}\nIncorrect answers: {Incorrect_answers[0]}\n {Incorrect_answers[1]}\n {Incorrect_answers[2]}";
+            string result = $"{Question}, Correct answer: {Correct_answer}\n";
+
+            for (int idx = 0; idx < Incorrect_answers.Count; idx++)
+            {
+                result += Incorrect_answers[idx] + "\n";
+            }
+
+            return result;
+        }
+
+        // Some data are in html encoding, so it's necessary to decode it
+        public void DecodeData()
+        {
+            Question = WebUtility.HtmlDecode(Question);
+            Correct_answer = WebUtility.HtmlDecode(Correct_answer);
+            
+            for(int idx = 0; idx < Incorrect_answers.Count; idx++)
+            {
+                Incorrect_answers[idx] = WebUtility.HtmlDecode(Incorrect_answers[idx]);
+            }
         }
     }
 }

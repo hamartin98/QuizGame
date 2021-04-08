@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Net;
 using System.Web;
+using System.Net.Http;
 
 namespace QuizGame
 {
@@ -98,6 +99,7 @@ namespace QuizGame
         private void NextQuestion()
         {
             QuestionData currentQuestion = questionList[currentQuestionIdx];
+            currentQuestion.DecodeData(); // need to decode data before usage
             lblQuestion.Text = currentQuestion.Question;
 
             for(int idx = 0; idx < 4; idx++)
