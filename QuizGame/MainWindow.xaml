@@ -18,41 +18,32 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="questionGrid">
-            
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="Question"
                    x:Name="lblQuestion"
-                   Grid.ColumnSpan="2"
-                   TextAlignment="Justify"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
                    TextWrapping="Wrap"/>
 
-            <Button Content="Answer 1"
-                    Grid.Row="1"
-                    Margin="10"/>
-            
-            <Button Content="Answer 2"
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Margin="10"/>
+            <Grid x:Name="answerGrid"
+                  Grid.Row="1">
 
-            <Button Content="Answer 3"
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Margin="10"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <Button Content="Answer 4"
-                    Grid.Row="2"
-                    Margin="10"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+            </Grid>
         </Grid>
 
         <Grid x:Name="prizeGrid"

@@ -20,19 +20,26 @@ namespace QuizGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<int> prizeList;
+        private List<int> prizeList; // Store the list of prizes
+        private List<AnswerButton> answerButtons; // Store the answer buttons
+        private List<Question> questionList; // Store the questions
+        private int currentQuestionIdx; // The index of the current question
 
         public MainWindow()
         {
             InitializeComponent();
             InitData();
             InitPrizeList();
+            InitAnswerButtons();
         }
 
-        // Initialize global variables at the start
+        // Initialize member variables at the start
         private void InitData()
         {
             prizeList = new List<int>();
+            answerButtons = new List<AnswerButton>();
+            questionList = new List<Question>();
+            currentQuestionIdx = 0;
         }
 
         // Initialize the list of prizes with values
@@ -53,6 +60,34 @@ namespace QuizGame
             prizeList.Add(1000000); // fixed prize
 
             lbPrizes.ItemsSource = prizeList;
+        }
+
+        // Initialize and add the answer buttons to the ui and store them in the answerButtons list
+        private void InitAnswerButtons()
+        {
+            AnswerButton ansBtn;
+            string labelText;
+
+            for (int idx = 0; idx < 4; idx++)
+            {
+                labelText = ((char)(65 + idx)).ToString(); // Ascii A is 65
+                ansBtn = new AnswerButton(labelText);
+                ansBtn.Margin = new Thickness(10);
+                ansBtn.Click += AnswerButton_Click;
+
+                Grid.SetColumn(ansBtn, idx % 2);
+                Grid.SetRow(ansBtn, idx / 2);
+                
+                answerGrid.Children.Add(ansBtn);
+                answerButtons.Add(ansBtn);
+            }
+        }
+
+        // Called when one of the answer buttons are clicked
+        private void AnswerButton_Click(object sender, RoutedEventArgs e)
+        {
+            string answer = (sender as AnswerButton).GetText();
+            MessageBox.Show(answer);
         }
     }
 }
