@@ -80,7 +80,7 @@ namespace QuizGame
             lblQuestion.Text = currentQuestion.Question;
 
             // For testing only
-            Console.WriteLine(currentQuestion.Correct_answer);
+            Console.WriteLine(currentQuestion.CorrectAnswer);
 
             for(int idx = 0; idx < 4; idx++)
             {

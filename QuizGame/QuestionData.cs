@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -6,16 +7,21 @@ namespace QuizGame
 {
     class QuestionData
     {
+        [JsonProperty("category")]
         public string Category { get; set; }
+        [JsonProperty("difficulty")]
         public string Difficulty { get; set; }
+        [JsonProperty("question")]
         public string Question { get; set; }
-        public string Correct_answer { get; set; }
-        public List<string> Incorrect_answers { get; set; }
+        [JsonProperty("correct_answer")]
+        public string CorrectAnswer { get; set; }
+        [JsonProperty("incorrect_answers")]
+        public List<string> IncorrectAnswers { get; set; }
 
         // Returns the correct answer to the question
         public string GetCorrectAnswer()
         {
-            return Correct_answer;
+            return CorrectAnswer;
         }
 
         // Return the list of answers in random order, including the correct one
@@ -29,11 +35,11 @@ namespace QuizGame
             {
                 if(idx != 3)
                 {
-                    result.Add(Incorrect_answers[idx]);
+                    result.Add(IncorrectAnswers[idx]);
                 }
                 else
                 {
-                    result.Add(Correct_answer);
+                    result.Add(CorrectAnswer);
                 }
             }
 
@@ -59,11 +65,11 @@ namespace QuizGame
         // Returns the question and the answers as a string
         public override string ToString()
         {
-            string result = $"{Question}, Correct answer: {Correct_answer}\n";
+            string result = $"{Question}, Correct answer: {CorrectAnswer}\n";
 
-            for (int idx = 0; idx < Incorrect_answers.Count; idx++)
+            for (int idx = 0; idx < IncorrectAnswers.Count; idx++)
             {
-                result += Incorrect_answers[idx] + "\n";
+                result += IncorrectAnswers[idx] + "\n";
             }
 
             return result;
@@ -73,18 +79,18 @@ namespace QuizGame
         public void DecodeData()
         {
             Question = WebUtility.HtmlDecode(Question);
-            Correct_answer = WebUtility.HtmlDecode(Correct_answer);
+            CorrectAnswer = WebUtility.HtmlDecode(CorrectAnswer);
             
-            for(int idx = 0; idx < Incorrect_answers.Count; idx++)
+            for(int idx = 0; idx < IncorrectAnswers.Count; idx++)
             {
-                Incorrect_answers[idx] = WebUtility.HtmlDecode(Incorrect_answers[idx]);
+                IncorrectAnswers[idx] = WebUtility.HtmlDecode(IncorrectAnswers[idx]);
             }
         }
 
         // Returns true if the given answer is correct
         public bool IsCorrect(string answer)
         {
-            return answer == Correct_answer;
+            return answer == CorrectAnswer;
         }
     }
 }
