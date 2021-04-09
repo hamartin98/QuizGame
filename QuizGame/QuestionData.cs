@@ -18,6 +18,8 @@ namespace QuizGame
         [JsonProperty("incorrect_answers")]
         public List<string> IncorrectAnswers { get; set; }
 
+        private int correctIdx;
+
         // Returns the correct answer to the question
         public string GetCorrectAnswer()
         {
@@ -31,6 +33,8 @@ namespace QuizGame
             HashSet<int> randomIndexes = GetRandomIndexOrder(4); // a hashset with values 0-3 randomly
 
             // we add the questions from the incorrect answers based on their indexes, and add the correct answer if the value is 3
+            int step = 0;
+            
             foreach (int idx in randomIndexes)
             {
                 if(idx != 3)
@@ -40,7 +44,9 @@ namespace QuizGame
                 else
                 {
                     result.Add(CorrectAnswer);
+                    correctIdx = step;
                 }
+                step++;
             }
 
             return result;
@@ -91,6 +97,12 @@ namespace QuizGame
         public bool IsCorrect(string answer)
         {
             return answer == CorrectAnswer;
+        }
+
+        // Returns the index of the correct answer from the randomly shuffled answers
+        public int GetCorrectIdx()
+        {
+            return correctIdx;
         }
     }
 }

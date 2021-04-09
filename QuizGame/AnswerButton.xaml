@@ -8,6 +8,9 @@
              d:DesignHeight="70"
              d:DesignWidth="500">
 
+    <Border x:Name="border"
+            BorderThickness="2">
+        
     <Button FontSize="16"
             Foreground="white"
             Height="Auto"
@@ -35,4 +38,5 @@
                        DockPanel.Dock="Right"/>
         </DockPanel>
     </Button>
+    </Border>
 </UserControl>

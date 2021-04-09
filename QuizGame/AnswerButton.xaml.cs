@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Windows.Media;
+using System.Windows;
 using System.Windows.Controls;
+using System.Threading;
 
 namespace QuizGame
 {
@@ -9,6 +11,8 @@ namespace QuizGame
     public partial class AnswerButton : UserControl
     {
         public event RoutedEventHandler Click;
+
+        public enum State { SELECTED, CORRECT, INCORRECT }
 
         // Create the answer button with the given label
         public AnswerButton(string label)
@@ -20,6 +24,7 @@ namespace QuizGame
         // Sets the text of the answer button
         public void SetData(string text)
         {
+            border.BorderThickness = new Thickness(0);
             tbText.Text = text;
         }
 
@@ -28,6 +33,7 @@ namespace QuizGame
         {
             if(this.Click != null)
             {
+                ChangeState(State.SELECTED);
                 this.Click(this, e);
             }
         }
@@ -36,6 +42,36 @@ namespace QuizGame
         public string GetText()
         {
             return tbText.Text;
+        }
+
+        // Change the state of the current answer button
+        public void ChangeState(State state)
+        {
+            Brush color = Brushes.Transparent;
+
+            switch(state)
+            {
+                case State.SELECTED:
+                    color = Brushes.Yellow;
+                    break;
+
+                case State.CORRECT:
+                    color = Brushes.Green;
+                    break;
+
+                case State.INCORRECT:
+                    color = Brushes.Red;
+                    break;
+            }
+
+            ChangeBorderColor(color);
+        }
+
+        // Sets the color of the border
+        private void ChangeBorderColor(Brush color)
+        {
+            border.BorderThickness = new Thickness(2);
+            border.BorderBrush = color;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Net.Http;
 using System;
+using System.Threading;
 
 namespace QuizGame
 {
@@ -103,15 +104,18 @@ namespace QuizGame
                     EndGame(false);
                     return;
                 }
+
                 NextQuestion();
                 prizeList.StepUp();
             }
             else
             {
+                QuestionData currentQuestion = questionList[currentQuestionIdx];
+                int correctIdx = currentQuestion.GetCorrectIdx();
+                answerButtons[correctIdx].ChangeState(AnswerButton.State.CORRECT);
+                
                 MessageBox.Show($"Wrong answer, end of the game!\nYour prize: {prizeList.GetPrize(true)}");
                 EndGame(true);
-                // Show Endgame screen
-                // Save result
             }
         }
 
