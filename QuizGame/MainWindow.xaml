@@ -28,20 +28,39 @@
               Margin="10">
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
+
+            <Grid x:Name="infoGrid"
+                  Margin="10 0 10 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="tbIndex"/>
+
+                <TextBlock x:Name="tbDifficulty"
+                           Grid.Column="1"/>
+
+                <TextBlock x:Name="tbCategory"
+                           Grid.Column="2"
+                           TextAlignment="Right"/>
+            </Grid>
 
             <TextBlock Text="Question"
                    x:Name="lblQuestion"
                    TextAlignment="Center"
                    VerticalAlignment="Center"
-                   TextWrapping="Wrap"/>
-
-            
+                   TextWrapping="Wrap"
+                       Foreground="DarkOrange"
+                       Grid.Row="1"/>
 
             <StackPanel x:Name="answerStack"
-                        Grid.Row="1">
+                        Grid.Row="2">
                 
             </StackPanel>
             

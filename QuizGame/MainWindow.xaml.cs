@@ -79,6 +79,10 @@ namespace QuizGame
             currentQuestion.DecodeData(); // need to decode data before usage
             lblQuestion.Text = currentQuestion.Question;
 
+            tbIndex.Text = (currentQuestionIdx + 1).ToString() + ".";
+            tbDifficulty.Text = currentQuestion.Difficulty;
+            tbCategory.Text = currentQuestion.Category;
+
             // For testing only
             Console.WriteLine(currentQuestion.CorrectAnswer);
 
