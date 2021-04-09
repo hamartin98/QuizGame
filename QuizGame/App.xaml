@@ -4,6 +4,26 @@
              xmlns:local="clr-namespace:QuizGame"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+        <Style x:Key="OrangeButton"
+               TargetType="Button">
+
+            <Setter Property="Foreground"
+                    Value="Orange"/>
+
+            <Setter Property="Background"
+                    Value="#424242"/>
+
+            <Setter Property="HorizontalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="VerticalAlignment"
+                    Value="Center"/>
+
+            <Setter Property="Padding"
+                    Value="10"/>
+            
+        </Style>
+        
     </Application.Resources>
 </Application>
