@@ -6,51 +6,62 @@
         xmlns:local="clr-namespace:QuizGame"
         mc:Ignorable="d"
         Title="EndScreen"
-        Height="400"
-        Width="600"
+        Height="350"
+        Width="550"
         Foreground="white"
         Background="#121212"
         FontSize="20">
 
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <TextBlock Text="Game over!"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
-
-        <StackPanel Grid.Row="1"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+        <StackPanel Margin="10">
             
-            <TextBlock Text="You won: "/>
-            
-            <TextBlock Text="$10000"
+            <TextBlock Text="Game over!"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Margin="10"/>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10">
+
+                <TextBlock Text="You won: "/>
+
+                <TextBlock Text="$10000"
                        Margin="20 0 0 0"
                        Foreground="DarkOrange"
                        x:Name="tbPrize"/>
-        </StackPanel>
+            </StackPanel>
 
-        <StackPanel Orientation="Horizontal"
-                    Grid.Row="2"
+            <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-            <TextBlock Text ="Enter your name: "/>
+                    Margin="10">
 
-            <TextBox x:Name="tbName"
+                <TextBlock Text="Helps used: "/>
+
+                <TextBlock Text="0"
+                       Margin="20 0 0 0"
+                       Foreground="DarkOrange"
+                       x:Name="tbHelps"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="10">
+                
+                <TextBlock Text ="Enter your name: "/>
+
+                <TextBox x:Name="tbName"
                      Width="200"
                      Margin="20 0 0 0"/>
 
-        </StackPanel>
+            </StackPanel>
 
-        <Button Content="Save result"
-                Grid.Row="3"
-                Style="{ StaticResource OrangeButton }"/>
-    </Grid>
+            <Button Content="Save result"
+                    Grid.Row="3"
+                    Style="{ StaticResource OrangeButton }"
+                    Margin="10"/>
+        </StackPanel>
 </Window>

@@ -24,6 +24,7 @@ namespace QuizGame
         // Sets the text of the answer button
         public void SetData(string text)
         {
+            Visibility = Visibility.Visible;
             border.BorderThickness = new Thickness(0);
             tbText.Text = text;
         }

@@ -20,7 +20,8 @@ namespace QuizGame
             await LoadQuestions("easy", 4);
             await LoadQuestions("medium", 4);
             await LoadQuestions("hard", 4);
-            
+            await LoadQuestions("medium", 1); // Get + 1 medium question to use as a bonus with the "get new question" help
+
             return this.questions;
         }
 

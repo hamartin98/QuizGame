@@ -19,11 +19,12 @@ namespace QuizGame
     /// </summary>
     public partial class EndScreen : Window
     {
-        public EndScreen(bool lost, string prize)
+        public EndScreen(bool lost, string prize, int helpsUsed)
         {
             InitializeComponent();
 
             tbPrize.Text = prize;
+            tbHelps.Text = helpsUsed.ToString();
         }
     }
 }
