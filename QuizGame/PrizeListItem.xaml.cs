@@ -45,8 +45,7 @@ namespace QuizGame
                 Foreground = Brushes.White;
             }
             tbIndex.Text = $"{index}.";
-            decimal prizeAsDecimal = Convert.ToDecimal(Prize);
-            tbPrize.Text = prizeAsDecimal.ToString("C1", CultureInfo.CreateSpecificCulture("en-Us"));
+            tbPrize.Text = FormatPrize(Prize);
         }
 
         // Change the state of the current prizeList item
@@ -63,6 +62,13 @@ namespace QuizGame
             {
                 rectReached.Visibility = Visibility.Visible;
             }
+        }
+
+        // Format the prize the return as a string
+        public static string FormatPrize(int prize)
+        {
+            decimal prizeAsDecimal = Convert.ToDecimal(prize);
+            return prizeAsDecimal.ToString("C1", CultureInfo.CreateSpecificCulture("en-Us"));
         }
     }
 }

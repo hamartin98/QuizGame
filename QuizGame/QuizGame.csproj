@@ -67,6 +67,9 @@
       <DependentUpon>AnswerButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApiHelper.cs" />
+    <Compile Include="EndScreen.xaml.cs">
+      <DependentUpon>EndScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PrizeListControl.xaml.cs">
       <DependentUpon>PrizeListControl.xaml</DependentUpon>
     </Compile>
@@ -77,6 +80,10 @@
     <Compile Include="QuestionHandler.cs" />
     <Compile Include="QuestionListModel.cs" />
     <Page Include="AnswerButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EndScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,7 +17,7 @@ namespace QuizGame
         private List<AnswerButton> answerButtons; // Store the answer buttons
         private List<QuestionData> questionList; // Store the questions
         private int currentQuestionIdx; // The index of the current question
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -98,15 +98,32 @@ namespace QuizGame
             if(questionList[currentQuestionIdx].IsCorrect(answer))
             {
                 currentQuestionIdx++;
+                if(currentQuestionIdx == 11)
+                {
+                    EndGame(false);
+                    return;
+                }
                 NextQuestion();
                 prizeList.StepUp();
             }
             else
             {
                 MessageBox.Show($"Wrong answer, end of the game!\nYour prize: {prizeList.GetPrize(true)}");
+                EndGame(true);
                 // Show Endgame screen
                 // Save result
             }
+        }
+
+        // Called when the game ends
+        // The game ends when the player take the current prize or lose
+        private void EndGame(bool lost)
+        {
+            int prize = prizeList.GetPrize(lost);
+            string prizeStr = PrizeListItem.FormatPrize(prize);
+
+            EndScreen endScreen = new EndScreen(lost, prizeStr);
+            endScreen.Show();
         }
     }
 }
