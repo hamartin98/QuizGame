@@ -54,8 +54,8 @@
                 <TextBlock Text ="Enter your name: "/>
 
                 <TextBox x:Name="tbName"
-                     Width="200"
-                     Margin="20 0 0 0"/>
+                        Width="200"
+                        Margin="20 0 0 0"/>
 
             </StackPanel>
 

@@ -91,9 +91,6 @@ namespace QuizGame
             tbDifficulty.Text = currentQuestion.Difficulty;
             tbCategory.Text = currentQuestion.Category;
 
-            // For testing only
-            Console.WriteLine(currentQuestion.CorrectAnswer);
-
             for (int idx = 0; idx < 4; idx++)
             {
                 answerButtons[idx].SetData(currentQuestion.GetAnswers()[idx]);

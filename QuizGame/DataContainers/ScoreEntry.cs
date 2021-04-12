@@ -8,14 +8,14 @@ namespace QuizGame
         public string Name { get; set; } // Player's name
         public string Prize { get; set; } // Prize won
         public int Helps { get; set; } // Helps used
-        public long timestamp { get; set; } // Timestamp of the winning
+        public long Timestamp { get; set; } // Timestamp of the winning
 
         // Convert the timestamp to a readable string format and return it
-        public string Date 
+        public string Date
         {   
             get
             {
-                DateTime dateTime = new DateTime(timestamp);
+                DateTime dateTime = new DateTime(Timestamp);
                 return dateTime.ToString();
             }
         }
@@ -30,7 +30,7 @@ namespace QuizGame
             this.Name = name;
             this.Prize = prize;
             this.Helps = helps;
-            this.timestamp = timestamp;
+            this.Timestamp = timestamp;
         }
     }
 }
