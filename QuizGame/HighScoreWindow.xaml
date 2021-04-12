@@ -5,8 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizGame"
         mc:Ignorable="d"
-        Title="HighScoreWindow" Height="450" Width="800">
+        Title="Highscores" Height="600" Width="600"
+        Foreground="white"
+        Background="#121212">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Local highsocres"
+                   FontSize="20"
+                   Margin="10"
+                   Foreground="DarkOrange"/>
+
+        <ListBox Grid.Row="1"
+                 Margin="10"
+                 x:Name="lbScores"
+                 HorizontalContentAlignment="Stretch"
+                 FontSize="16"
+                 Background="#121212"
+                 Foreground="White"
+                 BorderBrush="{x:Null}">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="3 3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Text="{Binding Name}"/>
+                        
+                        <TextBlock Text="{Binding Prize}"
+                                   Grid.Column="1"/>
+
+                        <TextBlock Text="{Binding Date}"
+                                   Grid.Column="2"/>
+
+                        <TextBlock Text="{Binding Helps}"
+                                   Grid.Column="3"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
         
+        <Button Grid.Row="2" 
+                Content="Back to Main menu"
+                HorizontalAlignment="Left"
+                Margin="10"
+                Style="{ StaticResource OrangeButton }"
+                x:Name="btnBackToMain"
+                Click="btnBackToMain_Click"/>
+
     </Grid>
 </Window>

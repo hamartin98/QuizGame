@@ -17,7 +17,7 @@ namespace QuizGame
         {
             using(IDbConnection connection = new SQLiteConnection(GetConnectionString()))
             {
-                string sqlCommand = "SELECT * FROM Scores ORDER BY Prize LIMIT 10;";
+                string sqlCommand = "SELECT * FROM Scores ORDER BY Prize DESC LIMIT 10;";
                 var output = connection.Query<ScoreEntry>(sqlCommand, new DynamicParameters());
                 return output.ToList();
             }

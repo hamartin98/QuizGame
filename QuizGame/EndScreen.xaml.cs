@@ -33,6 +33,8 @@ namespace QuizGame
                 ScoreEntry score = new ScoreEntry(name, prize, helpsUsed, timestamp);
                 
                 ScoreHandler.AddAndSaveScore(score);
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
                 Close();
             }
             else

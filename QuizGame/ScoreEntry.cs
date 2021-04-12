@@ -1,4 +1,6 @@
-﻿namespace QuizGame
+﻿using System;
+
+namespace QuizGame
 {
     class ScoreEntry
     {
@@ -7,6 +9,16 @@
         public string Prize { get; set; } // Prize won
         public int Helps { get; set; } // Helps used
         public long timestamp { get; set; } // Timestamp of the winning
+
+        // Convert the timestamp to a readable string format and return it
+        public string Date 
+        {   
+            get
+            {
+                DateTime dateTime = new DateTime(timestamp);
+                return dateTime.ToString();
+            }
+        }
 
         public ScoreEntry()
         {

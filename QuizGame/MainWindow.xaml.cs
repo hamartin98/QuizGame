@@ -12,6 +12,7 @@ namespace QuizGame
             InitializeComponent();
         }
 
+        // Show the game window
         private void btnStartGame_Click(object sender, RoutedEventArgs e)
         {
             GameWindow gameWindow = new GameWindow();
@@ -19,16 +20,15 @@ namespace QuizGame
             Close();
         }
 
-        private void GameWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        // Show the highscore window
         private void btnHighScores_Click(object sender, RoutedEventArgs e)
         {
-
+            HighScoreWindow highScoreWindow = new HighScoreWindow();
+            highScoreWindow.Show();
+            Close();
         }
 
+        // Close the application
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Close();
