@@ -127,9 +127,9 @@ namespace QuizGame
         private void EndGame(bool lost)
         {
             int prize = prizeList.GetPrize(lost);
-            string prizeStr = PrizeListItem.FormatPrize(prize);
+            //string prizeStr = PrizeListItem.FormatPrize(prize);
 
-            EndScreen endScreen = new EndScreen(lost, prizeStr, helpsUsed);
+            EndScreen endScreen = new EndScreen(lost, prize, helpsUsed);
             endScreen.Show();
             Close();
         }

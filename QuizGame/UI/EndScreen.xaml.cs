@@ -8,14 +8,14 @@ namespace QuizGame
     /// </summary>
     public partial class EndScreen : Window
     {
-        private string prize;
+        private int prize;
         private int helpsUsed;
 
-        public EndScreen(bool lost, string prize, int helpsUsed)
+        public EndScreen(bool lost, int prize, int helpsUsed)
         {
             InitializeComponent();
 
-            tbPrize.Text = prize;
+            tbPrize.Text = PrizeListItem.FormatPrize(prize);
             tbHelps.Text = helpsUsed.ToString();
 
             this.prize = prize;

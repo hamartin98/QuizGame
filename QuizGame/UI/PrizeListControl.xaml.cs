@@ -71,7 +71,7 @@ namespace QuizGame
         // If the player lost, returns the last fixed value, otherwise the player stopped and gets the prize
         public int GetPrize(bool lost)
         {
-            if(!lost)
+            if(!lost && currentStep > -1)
             {
                 return prizeList[currentStep];
             }
